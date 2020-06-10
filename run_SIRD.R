@@ -71,9 +71,9 @@ run_SIRD <- function(df, size_population, minimum_number_cases = 50, kc = 1, kd 
   R <- R[1:n] %>% set_names(df$date[1:n])
   I <- I[1:n] %>% set_names(df$date[1:n])
   
-  mu_hat <- calculate_estimator(n, n, I, deltaD, H) %>% set_names(df$date[1:n])
-  nu_hat <- calculate_estimator(n, n, I, deltaR, H) %>% set_names(df$date[1:n])
-  beta_hat <- - calculate_estimator(n, n, I * S/N, deltaS, H) %>% set_names(df$date[1:n])
+  mu_hat <- estimator_calculation(n, n, I, deltaD, H) %>% set_names(df$date[1:n])
+  nu_hat <- estimator_calculation(n, n, I, deltaR, H) %>% set_names(df$date[1:n])
+  beta_hat <- - estimator_calculation(n, n, I * S/N, deltaS, H) %>% set_names(df$date[1:n])
   
   # Regularization in mu_hat and nu_hat, to get them closer to 1/14 * 0.06 and 1/14 * 0.94, respectively
   mu_fixed <- 1/14 * 0.06

@@ -1,6 +1,6 @@
-# Calulates the estimator as in Giraitis, Kapetanios and Yates (JoE, 2014)
+# Estimator as in Giraitis, Kapetanios and Yates (JoE, 2014)
 
-calculate_estimator <- function(t_range, k_range, x, y, H) {
+estimator_calculation <- function(t_range, k_range, x, y, H) {
   output <- rep(NA, t_range)
   for(t in 1:t_range) {
     output_num <- 0
